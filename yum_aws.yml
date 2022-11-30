@@ -181,7 +181,8 @@
             when: not stat_value.stat.exists
 - hosts: tag_Name_master
   become: true
-  - name: Apply flannel.
-            shell: |
-                    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+  tasks:
+          - name: Apply flannel.
+                    shell: |
+                            kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
