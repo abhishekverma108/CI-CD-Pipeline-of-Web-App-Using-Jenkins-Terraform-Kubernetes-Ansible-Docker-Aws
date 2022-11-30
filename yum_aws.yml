@@ -183,6 +183,6 @@
   become: true
   tasks:
           - name: Apply flannel.
-                    shell: |
-                            kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+            shell: |
+                    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
