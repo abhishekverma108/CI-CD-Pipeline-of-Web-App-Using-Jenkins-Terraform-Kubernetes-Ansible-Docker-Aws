@@ -179,4 +179,9 @@
           - name: Join the Worker nodes to the cluster.
             command: sh /root/kubernetes_join_command
             when: not stat_value.stat.exists
+- hosts: tag_Name_master
+  become: true
+  - name: Apply flannel.
+            shell: |
+                    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
