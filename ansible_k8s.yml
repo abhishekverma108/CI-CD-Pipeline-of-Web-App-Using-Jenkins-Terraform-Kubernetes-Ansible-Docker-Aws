@@ -6,4 +6,4 @@
                     src: myd.yml
                     dest: /root/myd.yml
           - name: k8s deployment
-            command: "kubectl apply -f myd.yml"
+            command: "kubectl apply -f /root/myd.yml"
