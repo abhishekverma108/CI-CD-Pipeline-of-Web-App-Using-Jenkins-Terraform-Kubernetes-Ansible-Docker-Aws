@@ -1,0 +1,5 @@
+- hosts: tag_Name_master
+  become: true
+  tasks:
+          - name: k8s deployment
+            command: "kubectl apply -f myd.yml"
