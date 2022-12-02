@@ -1,5 +1,9 @@
 - hosts: tag_Name_master
   become: true
   tasks:
+          - name: Copy myd.yml. 
+            copy:
+                    src: myd.yml
+                    dest: /root/myd.yml
           - name: k8s deployment
             command: "kubectl apply -f myd.yml"
