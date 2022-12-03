@@ -1,5 +1,5 @@
 ---
-- hosts: tag_Name_master
+- hosts: _master
   become: true
   tasks:
           - command: "yum install docker -y"
@@ -107,7 +107,7 @@
                   
 
 
-- hosts: tag_worker_slave
+- hosts: _slave
   become: true
   tasks:
           - command: "yum install docker -y"
@@ -179,7 +179,7 @@
           - name: Join the Worker nodes to the cluster.
             command: sh /root/kubernetes_join_command
             when: not stat_value.stat.exists
-- hosts: tag_Name_master
+- hosts: _master
   become: true
   tasks:
           - name: Apply flannel.
