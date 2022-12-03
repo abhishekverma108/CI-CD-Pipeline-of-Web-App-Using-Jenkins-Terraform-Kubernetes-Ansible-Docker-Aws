@@ -32,7 +32,7 @@ pipeline{
         }
         stage("Building Docker Image From Docker File"){
             steps{
-                // git 'https://github.com/abhishekverma108/terraform_jenkins.git'
+                
                 sh 'docker build -t abhishekverma109/app:latest .'
             }
         }
