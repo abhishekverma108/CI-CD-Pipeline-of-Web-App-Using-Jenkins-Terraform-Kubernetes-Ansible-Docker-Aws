@@ -23,11 +23,11 @@ pipeline{
         
         stage("Kubernetes Cluster Setup on Aws From Ansible"){
             steps{
-                sh "sudo chmod +x inventory/ec2.py"
-                sh "sudo chmod +x inventory/ec2.ini"
+                
                 sh 'export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID'
                 sh 'export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY'
-                ansiblePlaybook credentialsId: 'privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/', playbook: 'yum_aws.yml'
+                ansiblePlaybook credentialsId: 'privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: 'aws_ec2.yml', playbook: 'yum_aws.yml'
+                
             }
         }
         stage("Building Docker Image From Docker File"){
@@ -44,7 +44,7 @@ pipeline{
         }
         stage("Deploying webapp on k8s cluster"){
             steps{
-                ansiblePlaybook credentialsId: 'privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/', playbook: 'ansible_k8s.yml'                
+                ansiblePlaybook credentialsId: 'privatekey', disableHostKeyChecking: true, installation: 'ansible', inventory: 'aws_ec2.yml', playbook: 'ansible_k8s.yml'                
 
             }
         }
