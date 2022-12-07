@@ -17,8 +17,5 @@ spec:
       containers:
       - name: "webc1"
         image: "vimal13/apache-webserver-php"
-        ports:
-        - targetPort: 80
-          port: 8080
-          nodePort: 30000
+        
    
