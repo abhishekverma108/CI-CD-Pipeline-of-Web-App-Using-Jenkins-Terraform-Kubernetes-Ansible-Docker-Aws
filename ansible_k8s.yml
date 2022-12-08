@@ -5,5 +5,11 @@
             copy:
                     src: myd.yml
                     dest: /root/myd.yml
+          - name: Copy svc.yml. 
+            copy:
+                    src: svc.yml
+                    dest: /root/svc.yml
           - name: k8s deployment
             command: "kubectl apply -f /root/myd.yml"
+          - name: k8s service
+            command: "kubectl apply -f /root/svc.yml"
