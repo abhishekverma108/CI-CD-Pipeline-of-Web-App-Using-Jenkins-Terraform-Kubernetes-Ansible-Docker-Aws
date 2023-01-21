@@ -69,7 +69,7 @@
           - name: "this will download all the required images we need for API,CM"
             command: "kubeadm config images pull"
           - name: Run cmd, if file doesnt exist already
-            command: "kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem"
+            command: "kubeadm init --pod-network-cidr=10.244.0.0/16 --ignore-preflight-errors=NumCPU --ignore-preflight-errors=Mem --node-name=master"
             when: not stat_result.stat.exists
           
           - name: creating master as client
